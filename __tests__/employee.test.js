@@ -9,3 +9,8 @@ test('created the employee object', () => {
     expect(employee.id).toBe('0123');
 });
 
+test('for employee name', () => {
+    const employee = new Employee('some guy', '0123', 'someguy@gmail.com');
+    expect(employee.getName()).toEqual(expect.stringContaining('some guy'));
+});
+

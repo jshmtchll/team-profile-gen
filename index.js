@@ -3,11 +3,13 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 const inquirer = require('inquirer');
+const generateSite = require('./src/template-page');
 
 //arrays for user answers
 let engineerArr = [];
 let managerArr = [];
 let internArr = [];
+let employeeArr = {managerArr, engineerArr, internArr};
 
 function promptUser() {
 
@@ -16,22 +18,22 @@ function promptUser() {
             {
                 type: 'text',
                 name: 'employeename',
-                message: `What's this employee's name?`
+                message: `What's this employee's name?(Required)`
             },
             {
                 type: 'text',
                 name: 'id',
-                message: `What's this employee's ID number?`
+                message: `What's this employee's ID number?(Required)`
             },
             {
                 type: 'text',
                 name: 'email',
-                message: `What's this employee's email address?`
+                message: `What's this employee's email address?(Required)`
             },
             {
                 type: 'list',
                 name: 'role',
-                message: `What is this employee's role here?`,
+                message: `What is this employee's role here?(Use arrow keys)`,
                 choices: ['Engineer', 'Manager', 'Intern']
             },
         ])
@@ -42,7 +44,7 @@ function promptUser() {
                     {
                         type: 'text',
                         name: 'github',
-                        message: `What's the engineer's github account?`
+                        message: `What's the engineer's github account?(Required)`                                  //ENGINEEER QUESTIONS//
                     },
                     {
                         type: 'confirm',
@@ -64,7 +66,7 @@ function promptUser() {
                     {
                         type: 'text',
                         name: 'office',
-                        message: `What's the Manager's office number?`
+                        message: `What's the Manager's office number?`                                                //MANAGER QUESTIONS//
                     },
                     {
                         type: 'confirm',
@@ -79,13 +81,13 @@ function promptUser() {
                         return promptUser();
                     }
                 })
-            } else if (role === 'Intern') {
+            } else if (role === 'Intern') { 
                 return inquirer
                 .prompt ([
                     {
                         type: 'text',
                         name: 'school',
-                        message: 'What university did/does the intern attend?'
+                        message: 'What university did/does the intern attend?(Required)'                                 //INTERN QUESTIONS//
                     },
                     {
                         type: 'confirm',
@@ -105,3 +107,6 @@ function promptUser() {
 }
 
 promptUser()
+    .then(employeeData => {
+        return generateSite(employeeArr)
+    })

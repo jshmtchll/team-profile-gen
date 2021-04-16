@@ -96,7 +96,7 @@ function promptUser() {
                     }
                 ])
                 .then(({school, addMore}) => {
-                    internArr.push(new Intern(employee, id, email, school))
+                    internArr.push(new Intern(employeename, id, email, school))
                     if (addMore) {
                         return promptUser();
                     }

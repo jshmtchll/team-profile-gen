@@ -38,7 +38,7 @@ console.log(employeeData);
         let internCard = `
         <div class="card" style="width: 18rem; margin-left: 20px; border-width: 3px; color: black;">
         <h2 style="width: 18rem; margin-left: 20px;">${card.name}</h2>
-        <h3 style="width: 18rem; margin-left: 20px;">Intern <iclass="fas fa-graduation-cap"></i></h3>
+        <h3 style="width: 18rem; margin-left: 20px;">Intern <i class="fas fa-graduation-cap"></i></h3>
         <hr style="border-top: 3px dotted black;">
         <div class="card-body">
         <p><b>ID #:</b> ${card.id}</p>

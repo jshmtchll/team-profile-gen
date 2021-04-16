@@ -21,7 +21,7 @@ console.log(employeeData);
         let managerCard = `
         <div class="card" style="width: 18rem; margin-left: 20px; border-width: 3px; color: black;">
         <h2 style="width: 18rem; margin-left: 20px;">${card.name}</h2>
-        <h3 style="width: 18rem; margin-left: 20px;">Engineer</h3>
+        <h3 style="width: 18rem; margin-left: 20px;">Manager</h3>
         <hr style="border-top: 3px dotted black;">
         <div class="card-body">
         <p><b>ID #:</b> ${card.id}</p>
@@ -65,7 +65,7 @@ module.exports = htmlTemplate => {
         </head>
         <body style="color: white;">
             <header>
-            <h1 class="text-center" style="background: red; height: 100px; padding-top: 20px; color: azure;">My Team Profile <img width="50" src="../img/profile.png" alt=""></h1>
+            <h1 class="text-center" style="background: rgb(71, 131, 209); height: 100px; padding-top: 20px; color: azure;">My Team Profile <img width="50" src="../img/profile.png" alt=""></h1>
             </header>
             <div class="margin: 15px;" class="container">
             <div class="row d-flex justify-content-center" style="padding-top: 20px;">

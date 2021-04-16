@@ -163,6 +163,7 @@ promptUser()
     })
     .then (htmlFile => {
         fs.writeFile('./dist/index.html', htmlFile, err => {
+            console.log('File created!')
             if (err) {
                 rejects(err);
                 return;

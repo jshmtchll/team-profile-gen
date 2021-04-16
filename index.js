@@ -1,15 +1,18 @@
+const fs = require('fs');
 const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 const inquirer = require('inquirer');
 const generateSite = require('./src/template-page');
+const { rejects } = require('assert');
+const { resolve } = require('path');
 
 //arrays for user answers
 let engineerArr = [];
 let managerArr = [];
 let internArr = [];
-let employeeArr = {managerArr, engineerArr, internArr};
+let employeeArr = {managerArr, engineerArr, internArr}; //merge arrays in obj to send to template-page.js
 
 function promptUser() {
 
@@ -18,17 +21,41 @@ function promptUser() {
             {
                 type: 'text',
                 name: 'employeename',
-                message: `What's this employee's name?(Required)`
+                message: `What's this employee's name?(Required)`,
+                validate: employeeInput => {
+                    if (employeeInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter the employees name');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'text',
                 name: 'id',
-                message: `What's this employee's ID number?(Required)`
+                message: `What's this employee's ID number?(Required)`,
+                validate: idInput => {
+                    if (idInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter a valid employee ID#');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'text',
                 name: 'email',
-                message: `What's this employee's email address?(Required)`
+                message: `What's this employee's email address?(Required)`,
+                validate: emailInput => {
+                    if (emailInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter the employees email.');
+                        return false;
+                    }
+                }
             },
             {
                 type: 'list',
@@ -44,7 +71,15 @@ function promptUser() {
                     {
                         type: 'text',
                         name: 'github',
-                        message: `What's the engineer's github account?(Required)`                                  //ENGINEEER QUESTIONS//
+                        message: `What's the engineer's github account?(Required)`,                           //ENGINEEER QUESTIONS//
+                        validate: gitInput => {
+                            if (gitInput) {
+                                return true
+                            } else {
+                                console.log('Please enter Github username.')
+                                return false;
+                            }
+                        }                                 
                     },
                     {
                         type: 'confirm',
@@ -66,7 +101,15 @@ function promptUser() {
                     {
                         type: 'text',
                         name: 'office',
-                        message: `What's the Manager's office number?`                                                //MANAGER QUESTIONS//
+                        message: `What's the Manager's office number?(Required)`,                           //MANAGER QUESTIONS//
+                        validate: officeInput => {
+                            if (officeInput) {
+                                return true;
+                            } else {
+                                console.log('Please enter an office number for Manager.');
+                                return false;
+                            }
+                        }                                                
                     },
                     {
                         type: 'confirm',
@@ -87,7 +130,15 @@ function promptUser() {
                     {
                         type: 'text',
                         name: 'school',
-                        message: 'What university did/does the intern attend?(Required)'                                 //INTERN QUESTIONS//
+                        message: 'What university did/does the intern attend?(Required)',                       //INTERN QUESTIONS//  
+                        validate: schoolInput => {
+                            if (schoolInput) {
+                                return true;
+                            } else {
+                                console.log('Please enter the school the Intern attended.');
+                                return false;
+                            }
+                        }                               
                     },
                     {
                         type: 'confirm',
@@ -109,4 +160,13 @@ function promptUser() {
 promptUser()
     .then(employeeData => {
         return generateSite(employeeArr)
+    })
+    .then (htmlFile => {
+        fs.writeFile('./dist/index.html', htmlFile, err => {
+            if (err) {
+                rejects(err);
+                return;
+            }
+            
+        })
     })

@@ -3,12 +3,14 @@ console.log(employeeData);
 
     const engineer = employeeData.engineerArr.map(function(card) {
         let engineerCard = `
-        <div class='card'>
-        <h2>${card.name}</h2>
-        <h3>Engineer</h3>
+        <div class="card" style="width: 18rem; margin-left: 20px; border-width: 3px; color: black;">
+        <h2 style="width: 18rem; margin-left: 20px;">${card.name}</h2>
+        <h3 style="width: 18rem; margin-left: 20px;">Engineer</h3>
+        <div class="card-body">
         <p><b>ID #:</b> ${card.id}</p>
         <p><b>Email:</b> <a href='mailto:${card.email}'>${card.email}</a></p>
         <p><b>Github:</b> <a href="https://github.com/${card.github}" target="_blank">${card.github}</a></p>
+        </div>
         </div> `
 
         return engineerCard
@@ -16,13 +18,15 @@ console.log(employeeData);
 
     const manager = employeeData.managerArr.map(function(card) {
         let managerCard = `
-        <div class='card'>
-        <h2>${card.name}</h2>
-        <h3>Engineer</h3>
+        <div class="card" style="width: 18rem; margin-left: 20px; border-width: 3px; color: black;">
+        <h2 style="width: 18rem; margin-left: 20px;">${card.name}</h2>
+        <h3 style="width: 18rem; margin-left: 20px;">Engineer</h3>
+        <div class="card-body">
         <p><b>ID #:</b> ${card.id}</p>
-        <p><b>Email:</b> <a href='mailto:${card.email}'>${card.email}</a></p>
+        <p><b>Email:</b> <a href="mailto:${card.email}">${card.email}</a></p>
         <p><b>Office #:</b> ${card.office}</p>
-        </div>` 
+        </div>
+        </div>`
 
         return managerCard
         
@@ -30,12 +34,14 @@ console.log(employeeData);
     
     const intern = employeeData.internArr.map(function(card) {
         let internCard = `
-        <div class='card'>
-        <h3>${card.name}</h3>
-        <h5>Intern</h5>
+        <div class="card" style="width: 18rem; margin-left: 20px; border-width: 3px; color: black;">
+        <h2 style="width: 18rem; margin-left: 20px;">${card.name}</h2>
+        <h3 style="width: 18rem; margin-left: 20px;">Intern</h3>
+        <div class="card-body">
         <p><b>ID #:</b> ${card.id}</p>
-        <p><b>Email:</b> <a href='mailto:${card.email}'>${card.email}</a></p>
+        <p><b>Email:</b> <a href="mailto:${card.email}">${card.email}</a></p>
         <p><b>School:</b> ${card.school}</p>
+        </div>
         </div>` 
         
         return internCard
@@ -54,11 +60,15 @@ module.exports = htmlTemplate => {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" />
             <title>My Team Profile</title>
         </head>
-        <body>
+        <body style="color: white;">
             <header>
-            <h1 class="text-center">My Team Profile</h1>
+            <h1 class="text-center" style="background: red; height: 100px; padding-top: 20px; color: azure;">My Team Profile</h1>
             </header>
-            ${generateCards(htmlTemplate)}
+            <div class="margin: 15px;" class="container">
+            <div class="row d-flex justify-content-center" style="padding-top: 20px;">
+            ${createCards(htmlTemplate)}
+            </div>
+            </div>
         </body>
         </html>    
     `

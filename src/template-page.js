@@ -5,7 +5,7 @@ console.log(employeeData);
         let engineerCard = `
         <div class="card" style="width: 18rem; margin-left: 20px; border-width: 3px; color: black;">
         <h2 style="width: 18rem; margin-left: 20px;">${card.name}</h2>
-        <h3 style="width: 18rem; margin-left: 20px;">Engineer</h3>
+        <h3 style="width: 18rem; margin-left: 20px;">Engineer <i class="fas fa-glasses"></i></h3>
         <hr style="border-top: 3px dotted black;">
         <div class="card-body">
         <p><b>ID #:</b> ${card.id}</p>
@@ -21,7 +21,7 @@ console.log(employeeData);
         let managerCard = `
         <div class="card" style="width: 18rem; margin-left: 20px; border-width: 3px; color: black;">
         <h2 style="width: 18rem; margin-left: 20px;">${card.name}</h2>
-        <h3 style="width: 18rem; margin-left: 20px;">Manager</h3>
+        <h3 style="width: 18rem; margin-left: 20px;">Manager <i class="fas fa-coffee"></i></h3>
         <hr style="border-top: 3px dotted black;">
         <div class="card-body">
         <p><b>ID #:</b> ${card.id}</p>
@@ -38,7 +38,7 @@ console.log(employeeData);
         let internCard = `
         <div class="card" style="width: 18rem; margin-left: 20px; border-width: 3px; color: black;">
         <h2 style="width: 18rem; margin-left: 20px;">${card.name}</h2>
-        <h3 style="width: 18rem; margin-left: 20px;">Intern</h3>
+        <h3 style="width: 18rem; margin-left: 20px;">Intern <iclass="fas fa-graduation-cap"></i></h3>
         <hr style="border-top: 3px dotted black;">
         <div class="card-body">
         <p><b>ID #:</b> ${card.id}</p>
@@ -61,6 +61,7 @@ module.exports = htmlTemplate => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../img/fav.png""/>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
             <title>My Team Profile</title>
         </head>
         <body style="color: white;">

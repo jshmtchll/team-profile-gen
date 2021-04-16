@@ -17,7 +17,7 @@ This is a command-line application that runs with Node.js that dynamically gener
 ## Usage 
 
 
-<a href="https://drive.google.com/file/d/14FM4Xu0-XbRBSttJlMMBON9sUHSUjAX2/view?usp=sharing" rel="generator demo">![demo](img/croppeddemo.gif)</a>
+<a href="https://drive.google.com/file/d/14FM4Xu0-XbRBSttJlMMBON9sUHSUjAX2/view?usp=sharing" rel="generator demo">![demo](img/croppeddemo.gif)</a><br>
 (click for video)
 
 When you run `node index.js`, the application uses the `inquirer` package to prompt you in the command line with a series of questions about your GitHub and about your project.
